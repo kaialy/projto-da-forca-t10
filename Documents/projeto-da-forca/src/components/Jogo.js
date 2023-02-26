@@ -7,14 +7,14 @@ import forca5 from "../assets/forca5.png"
 import forca6 from "../assets/forca6.png"
 
 export default function Jogo(props) {
-    const{ iniciarJogo, erros } = props
+    const{ iniciarJogo, erros, palavraJogo } = props
     const imagens =[forca0,forca1,forca2,forca3,forca4,forca5,forca6]
     
 return (
 <div className="container-forca">
     <img src={imagens[erros]} alt="forca"  />
     <button onClick={iniciarJogo}>escolher palavra</button>
-    <h1>_ _ _ _ _ _ </h1>
+    <h1>{palavraJogo}</h1>
 
 
     </div>
