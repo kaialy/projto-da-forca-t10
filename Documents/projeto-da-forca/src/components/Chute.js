@@ -1,8 +1,10 @@
-export default function Chute(){
+export default function Chute(props){
+    const { desabilitarInput } = props
+
     return (
     <div className="container-input">
         <span> ja sei a palavra!</span>
-        <input />
+        <input disabled={desabilitarInput} />
         <button> chutar</button>
     </div>
     )
