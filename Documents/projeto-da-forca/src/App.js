@@ -11,6 +11,7 @@ export default function App() {
     const [erros, setErros] = useState(0)
     const [palavraJogo, setPalavraJogo] = useState([])
     const [palavraEscolhida, setPalavraEscolihida] = useState([])
+    const [corPalavra,setCorPalavra] = useState("verde")
 
     function iniciarJogo(){
         sortearPalavra()
@@ -48,23 +49,30 @@ export default function App() {
                 novaPalavraJogo[i] = letraEscolhida
             }
         })
-        setPalavraJogo(novaPalavraJogo )
+        setPalavraJogo(novaPalavraJogo)
+        if(!novaPalavraJogo.includes(" _")) {
+            setCorPalavra("verde")
+            finalizarJogo() 
 
-
+        }
     }
     function errouLetra(letraClicada){
         const novoErros = erros + 1
         setErros(novoErros)
         if(novoErros===6){
-            
+
         }
 
+    }
+    function finalizarJogo(){
+        setLetrasUsadas(alfabeto)
+        setDesabilitarInput(true)
     }
 
     return (
         <div className= "container-tela ">           
 
-            <Jogo iniciarJogo={iniciarJogo} erros={erros} palavraJogo={palavraJogo} />
+            <Jogo iniciarJogo={iniciarJogo} erros={erros} palavraJogo={palavraJogo} corPalavra={corPalavra} />
             <Letras letrasUsadas={letrasUsadas} clicarLetra={clicarLetra} />
             <Chute desabilitarInput={desabilitarInput}/>
 
