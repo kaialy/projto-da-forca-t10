@@ -20,6 +20,7 @@ export default function App() {
         setLetrasUsadas([])
         setErros(0)
         setCorPalavra("preto")
+        setChute("")
     }
 
     function sortearPalavra(){  
@@ -27,7 +28,7 @@ export default function App() {
         const palavra = palavras[i]
         const palavraArray = palavra.split("")
         setPalavraEscolihida(palavraArray)
-        console.log(palavra)
+        
 
         let tracinhos = []
         palavraArray.forEach(() => tracinhos.push(" _"))
@@ -74,13 +75,26 @@ export default function App() {
         setDesabilitarInput(true)
         setPalavraJogo(palavraEscolhida)
     }
+    function chutarPalavraInteira(){
+        let palavraEscolhidaString = ""
+        palavraEscolhida.forEach(letra=> palavraEscolhidaString += letra)
+        if(chute === palavraEscolhidaString){
+            setCorPalavra("verde")
+        } else{
+            setCorPalavra("vermelho")
+            setErros(6)
+            alert("voce errou o chute perdeu buaaa")
+        }
+        finalizarJogo()
+
+    }
 
     return (
         <div className= "container-tela ">           
 
             <Jogo iniciarJogo={iniciarJogo} erros={erros} palavraJogo={palavraJogo} corPalavra={corPalavra} />
             <Letras letrasUsadas={letrasUsadas} clicarLetra={clicarLetra} />
-            <Chute desabilitarInput={desabilitarInput}/>
+            <Chute desabilitarInput={desabilitarInput} chute={chute} setChute={setChute} chutarPalavraInteira={chutarPalavraInteira}/>
 
         </div>  
     )
