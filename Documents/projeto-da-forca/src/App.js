@@ -11,7 +11,8 @@ export default function App() {
     const [erros, setErros] = useState(0)
     const [palavraJogo, setPalavraJogo] = useState([])
     const [palavraEscolhida, setPalavraEscolihida] = useState([])
-    const [corPalavra,setCorPalavra] = useState("verde")
+    const [corPalavra,setCorPalavra] = useState("preto")
+    const [chute, setChute]=useState("")
 
     function iniciarJogo(){
         sortearPalavra()
