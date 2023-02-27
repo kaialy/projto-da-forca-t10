@@ -31,8 +31,29 @@ export default function App() {
 
     }
     function clicarLetra(letraClicada){
-setLetrasUsadas([...letrasUsadas, letraClicada])
+        setLetrasUsadas([...letrasUsadas, letraClicada])   
+        if(palavraEscolhida.includes(letraClicada)){
+            acertouLetra(letraClicada)
+        }else{
+            errouLetra(letraClicada)
+        }
 
+    }
+
+    function acertouLetra(letraClicada){
+        const novaPalavraJogo = [...palavraJogo]
+
+        palavraEscolhida.forEach((letraEscolhida, i) =>{
+            if(palavraEscolhida[i]===letraClicada){
+                novaPalavraJogo[i] = letraEscolhida
+            }
+        })
+        setPalavraJogo(novaPalavraJogo )
+
+
+    }
+    function errouLetra(letraClicada){
+        console.log("errou")
     }
 
     return (
