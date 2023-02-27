@@ -30,12 +30,16 @@ export default function App() {
         setPalavraJogo(tracinhos)
 
     }
+    function clicarLetra(letraClicada){
+setLetrasUsadas([...letrasUsadas, letraClicada])
+
+    }
 
     return (
         <div className= "container-tela ">           
 
             <Jogo iniciarJogo={iniciarJogo} erros={erros} palavraJogo={palavraJogo} />
-            <Letras letrasUsadas={letrasUsadas} />
+            <Letras letrasUsadas={letrasUsadas} clicarLetra={clicarLetra} />
             <Chute desabilitarInput={desabilitarInput}/>
 
         </div>  
