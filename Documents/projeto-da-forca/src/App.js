@@ -53,7 +53,12 @@ export default function App() {
 
     }
     function errouLetra(letraClicada){
-        console.log("errou")
+        const novoErros = erros + 1
+        setErros(novoErros)
+        if(novoErros===6){
+            
+        }
+
     }
 
     return (
