@@ -17,6 +17,8 @@ export default function App() {
         sortearPalavra()
         setDesabilitarInput(false)
         setLetrasUsadas([])
+        setErros(0)
+        setCorPalavra("preto")
     }
 
     function sortearPalavra(){  
@@ -59,14 +61,17 @@ export default function App() {
     function errouLetra(letraClicada){
         const novoErros = erros + 1
         setErros(novoErros)
-        if(novoErros===6){
 
+        if(novoErros===6){
+            setCorPalavra("vermelho")
+            finalizarJogo()
         }
 
     }
     function finalizarJogo(){
         setLetrasUsadas(alfabeto)
         setDesabilitarInput(true)
+        setPalavraJogo(palavraEscolhida)
     }
 
     return (
